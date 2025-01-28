@@ -72,7 +72,7 @@ const DownloadApp: React.FC = () => {
             key={tab}
             onClick={() => setSelectedTab(tab)}
             className={`px-4 py-2 font-semibold ${
-              selectedTab === tab ? "text-gray-600 border-b-2 border-black" : "text-black"
+              selectedTab === tab ? "text-gray-600 border-b-2 border-gray-400" : "text-black"
             }`}
           >
             {tab}
