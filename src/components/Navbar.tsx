@@ -56,7 +56,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className="md:hidden flex items-center">
-      <div className="flex items-center space-x-4 mr-4">
+      <div className="flex items-center space-x-3 mr-4">
   <button className="text-black font-bold">Login</button>
   <button className="text-black font-bold">Sign Up</button>
   <div className="px-1 py-1 border rounded-full bg-gray-700">
