@@ -35,7 +35,7 @@ const Signup: React.FC = () => {
         <h2 className="text-m font-semibold text-gray-700 mb-4 ml-6 md:text-3xl">
           Start your adventure today!
         </h2>
-        <Button className="bg-gray-800 text-white px-3 py-2 md:text-sm text-xs  rounded-full hover:bg-gray-900 md:px-8 md:py-3 md:text-base">
+        <Button className="bg-gray-800 ml-4 text-white px-3 py-2 md:text-sm text-xs  rounded-full hover:bg-gray-900 md:px-8 md:py-3 md:text-base">
           Sign Up Now
         </Button>
       </div>
