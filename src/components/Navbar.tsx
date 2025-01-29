@@ -15,7 +15,7 @@ const Navbar = () => {
           <img src="/rat.png" alt="Rats Kingdom Logo" className="w-7 h-7 mr-0 -mt-4" />
           <div className="flex flex-col items-start">
             <span className="text-[#5B5858] font-sans text-[24px] font-bold leading-[41.15px] text-left">RATS</span>
-            <span className="text-[#5B5858] font-sans text-[18px] font-bold leading-[25px] md:-ml-8 -ml-6 -mt-2">KINGDOM</span>
+            <span className="text-[#5B5858] font-sans text-[18px] font-bold leading-[25px] md:-ml-7 -ml-6 -mt-2">KINGDOM</span>
           </div>
         </div>
 
