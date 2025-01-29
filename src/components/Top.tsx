@@ -32,12 +32,12 @@ const TopData = () => {
   const data = selectedTab === "topList" ? topListData : newCoinsData;
 
   return (
-    <div className="border border-gray-300 rounded-lg  p-6 -ml-32 bg-[#E9E9E9] h-[350px] w-[400px] md:w-[600px]">
+    <div className="border border-gray-300 rounded-lg mr-36 p-6 bg-[#E9E9E9] h-[350px] md:w-[600px] w-[360px]">
       {/* Tab Buttons with Bigger Background */}
       <div className="flex justify-between mb-4">
         <button
           onClick={() => handleTabClick("topList")}
-          className={`md:px-24 px-16 -ml-7 -mt-7 py-4 font-semibold  ${
+          className={`md:px-24 px-16 -ml-7  -mt-7 py-4 font-semibold  ${
             selectedTab === "topList"
               ? "bg-white text-[#000000] "
               : "text-gray-800 bg-transparent"
@@ -47,7 +47,7 @@ const TopData = () => {
         </button>
         <button
           onClick={() => handleTabClick("newCoins")}
-          className={`md:px-24 px-12 -mr-7 -mt-7 py-4 font-semibold transition-all ${
+          className={`md:px-24 px-16 -mr-7 -mt-7 py-4 font-semibold transition-all ${
             selectedTab === "newCoins"
               ? "bg-white text-[#000000]"
               : "text-gray-800 bg-transparent"
@@ -61,7 +61,7 @@ const TopData = () => {
       <ul>
         {data.map((item, index) => (
           <li key={index} className="flex justify-between items-center mb-4">
-            <span className="flex items-center space-x-2">
+            <span className="flex items-center space-x-3 -ml-2">
               <Image src={item.icon} alt={item.shortName} width={30} height={30} />
               <div className="space-x-2">
                 <span className="text-m font-bold text-[#5B5858]">{item.shortName}</span>
@@ -70,7 +70,7 @@ const TopData = () => {
             </span>
 
             {/* Price & Change Section */}
-            <div className="flex items-center space-x-16 ml-auto">
+            <div className="flex items-center md:space-x-16 space-x-2 ml-auto">
               <span className="font-semibold text-[#5B5858] text-[16px] leading-[21.78px] text-right">{item.price}</span>
               <span className={item.changeColor}>{item.change}</span>
             </div>
