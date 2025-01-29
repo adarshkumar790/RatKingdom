@@ -34,7 +34,7 @@ const HomePage = () => {
         </div>
 
         {/* Right Section */}
-        <div className=" md:mt-0 w-[500px] h-[500px] ml-32 flex items-center justify-center">
+        <div className=" md:mt-0 md:w-[500px] h-[500px]  ml-32 flex items-center justify-center">
         <TopData/>
         </div>
         
