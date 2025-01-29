@@ -32,9 +32,9 @@ const TopData = () => {
   const data = selectedTab === "topList" ? topListData : newCoinsData;
 
   return (
-    <div className="border border-gray-300 rounded-lg ml-3 mr-36 p-6 bg-[#E9E9E9] h-[350px] md:w-[600px] w-[360px]">
+    <div className="border border-gray-300 rounded-lg md:ml-3 md:mr-36 mt-8 md:p-6 p-6 bg-[#E9E9E9] md:h-[350px] md:w-[600px]  w-[300px]">
       {/* Tab Buttons with Bigger Background */}
-      <div className="flex justify-between mb-4">
+      <div className="flex justify-between mb-4 ">
         <button
           onClick={() => handleTabClick("topList")}
           className={`md:px-24 px-16 -ml-7  -mt-7 py-4 font-semibold  ${
@@ -63,15 +63,15 @@ const TopData = () => {
           <li key={index} className="flex justify-between items-center mb-4">
             <span className="flex items-center space-x-3 -ml-2">
               <Image src={item.icon} alt={item.shortName} width={30} height={30} />
-              <div className="space-x-2">
+              <div className="md:space-x-2 space-x-1">
                 <span className="text-m font-bold text-[#5B5858]">{item.shortName}</span>
                 <span className="ml-2 text-sm font-medium text-[#5B5858]">{item.fullName}</span>
               </div>
             </span>
 
             {/* Price & Change Section */}
-            <div className="flex items-center md:space-x-16 space-x-2 ml-auto">
-              <span className="font-semibold text-[#5B5858] text-[16px] leading-[21.78px] text-right">{item.price}</span>
+            <div className="flex items-center md:space-x-16 space-x-4  ml-auto">
+              <span className="font-semibold text-[#5B5858] text-[16px]  leading-[21.78px] text-right">{item.price.slice(0,5)}</span>
               <span className={item.changeColor}>{item.change}</span>
             </div>
           </li>

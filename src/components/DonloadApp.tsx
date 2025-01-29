@@ -18,7 +18,7 @@ const DownloadApp: React.FC = () => {
   const tabOptions = ["Desktop", "Mobile", "Pro"];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 md:mt-8 md:px-10">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 md:mt-8 md:px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-5xl md:flex-row-reverse">
         {/* Right: QR Code and Download Section (Appears First in Mobile) */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-8 md:space-y-12">
