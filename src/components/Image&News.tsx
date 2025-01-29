@@ -44,7 +44,7 @@ const News: React.FC = () => {
       {/* Image + News Section */}
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-10">
         {/* Image Container */}
-        <div className="w-[95%] ml-4 md:w-[50%] bg-gray-200">
+        <div className="w-[90%] ml-4 md:w-[50%] bg-gray-200">
           <img
             src={image}
             alt={`${selectedTab} Image`}
