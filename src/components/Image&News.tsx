@@ -53,7 +53,7 @@ const News: React.FC = () => {
         </div>
 
         {/* News Content */}
-        <div className="w-[95%] md:w-[50%] ml-4 space-y-4 bg-[#D9D9D91F] p-6 rounded-lg shadow-md">
+        <div className="w-[90%] md:w-[50%] ml-4 space-y-4 bg-[#D9D9D91F] p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-gray-700">{headline}</h2>
           <p className="text-gray-900 text-base font-normal leading-6">{content}</p>
           <a href="#" className="text-blue-600 hover:underline font-medium">
