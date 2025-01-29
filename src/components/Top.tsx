@@ -32,12 +32,12 @@ const TopData = () => {
   const data = selectedTab === "topList" ? topListData : newCoinsData;
 
   return (
-    <div className="border border-gray-300 rounded-lg  p-6 bg-[#E9E9E9] h-[350px] w-[600px]">
+    <div className="border border-gray-300 rounded-lg  p-6 -ml-32 bg-[#E9E9E9] h-[350px] w-[400px] md:w-[600px]">
       {/* Tab Buttons with Bigger Background */}
       <div className="flex justify-between mb-4">
         <button
           onClick={() => handleTabClick("topList")}
-          className={`px-24 -ml-7 -mt-7 py-4 font-semibold  ${
+          className={`md:px-24 px-16 -ml-7 -mt-7 py-4 font-semibold  ${
             selectedTab === "topList"
               ? "bg-white text-[#000000] "
               : "text-gray-800 bg-transparent"
@@ -47,7 +47,7 @@ const TopData = () => {
         </button>
         <button
           onClick={() => handleTabClick("newCoins")}
-          className={`px-24 -mr-7 -mt-7 py-4 font-semibold transition-all ${
+          className={`md:px-24 px-12 -mr-7 -mt-7 py-4 font-semibold transition-all ${
             selectedTab === "newCoins"
               ? "bg-white text-[#000000]"
               : "text-gray-800 bg-transparent"

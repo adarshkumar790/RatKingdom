@@ -16,10 +16,10 @@ const HomePage = () => {
       <main className="flex flex-col md:flex-row items-center justify-between px-6 py-10 pt-4">
         {/* Left Section */}
         <div className="text-center md:text-left max-w-xl">
-          <h1 className="font-[Kantumruy] text-black text-[54px] font-extrabold leading-[60px] text-left">
+          <h1 className="font-[Kantumruy] text-black text-[40px] md:text-[54px] font-extrabold leading-[46px] md:leading-[60px] text-left">
             Join the all-in-one <br /> <span className="text-[#5B5858]"> Crypto app </span> by <br /> Rats Kingdom!
           </h1>
-          <div className="mt-16 flex justify-center md:justify-start">
+          <div className="md:mt-16 mt-12 flex justify-center md:justify-start">
             <input
               type="text"
               placeholder="Email / Phone number"
