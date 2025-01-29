@@ -13,7 +13,7 @@ const HomePage = () => {
     <Navbar/>
     <div className="bg-white min-h-screen flex flex-col items-center">
     
-      <main className="flex flex-col md:flex-row items-center justify-between px-6 py-10 pt-4">
+      <main className="flex flex-col md:flex-row items-center justify-between px-6 py-10 mt-8">
         {/* Left Section */}
         <div className="text-center md:text-left max-w-xl md:ml-20">
           <h1 className="font-[Kantumruy] text-black text-[40px] md:text-[54px] font-extrabold leading-[46px] md:leading-[60px] text-left">
