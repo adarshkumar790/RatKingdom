@@ -71,7 +71,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-20 left-0 w-full bg-white shadow-md md:hidden flex flex-col items-center py-4 space-y-4">
+        <div className="absolute top-20 left-0 w-full bg-white shadow-md md:hidden flex flex-col items-center py-4 space-y-2">
           <a href="#" className="text-[#000000] font-bold">BUY CRYPTO</a>
           <a href="#" className="text-[#000000] font-bold">MARKET</a>
           <a href="#" className="text-[#000000] font-bold">TRADE</a>
