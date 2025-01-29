@@ -15,7 +15,7 @@ const HomePage = () => {
     
       <main className="flex flex-col md:flex-row items-center justify-between px-6 py-10 pt-4">
         {/* Left Section */}
-        <div className="text-center md:text-left max-w-xl">
+        <div className="text-center md:text-left max-w-xl md:ml-20">
           <h1 className="font-[Kantumruy] text-black text-[40px] md:text-[54px] font-extrabold leading-[46px] md:leading-[60px] text-left">
             Join the all-in-one <br /> <span className="text-[#5B5858]"> Crypto app </span> by <br /> Rats Kingdom!
           </h1>
@@ -34,7 +34,7 @@ const HomePage = () => {
         </div>
 
         {/* Right Section */}
-        <div className=" md:mt-0 md:w-[500px] h-[500px]  ml-32 flex items-center justify-center">
+        <div className=" md:mt-0 md:w-[500px] h-[500px] w-[400px]  ml-32 flex items-center justify-center">
         <TopData/>
         </div>
         

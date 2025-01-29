@@ -3,17 +3,17 @@ import { Button } from "./Button";
 
 const Signup: React.FC = () => {
   return (
-    <div className="relative w-full max-w-full bg-[#D9D9D9] p-4  md:p-8 overflow-hidden shadow-md mx-auto">
+    <div className="relative w-full max-w-full bg-[#D9D9D9] p-4 md:pl-56 md:pr-52  md:p-4 overflow-hidden shadow-md mx-auto">
       <div className="absolute top-0 left-0 h-full w-full pointer-events-none">
         {/* Left-Bottom Diagonal */}
-        <div className="absolute left-0 -bottom-14 ml-2 bg-[#CECECE] w-[30px] h-[100px] transform -rotate-45 md:w-[30px] md:h-[100px]"></div>
-        <div className="absolute left-0 -bottom-12 ml-8 bg-[#CECECE] w-[30px] h-[160px] transform -rotate-45 md:w-[30px] md:h-[160px]"></div>
+        <div className="absolute left-0 -bottom-14 md:-bottom-7  ml-2 bg-[#CECECE] w-[30px] h-[100px] transform -rotate-45 md:w-[30px] md:h-[100px]"></div>
+        <div className="absolute left-0 -bottom-11 md:-bottom-10 ml-8 bg-[#CECECE] w-[30px] h-[160px] md:h-[200px] transform -rotate-45 md:w-[30px] md:h-[160px]"></div>
 
         {/* Left-Side Image */}
         <img 
           src="/leftimage.png" 
           alt="Left Side" 
-          className="absolute left-8 -bottom-0 w-[80px] h-[80px] object-cover md:w-[100px] md:h-[100px]"
+          className="absolute left-8 bottom-2 md:bottom-7  w-[80px] h-[80px] object-cover md:w-[100px] md:h-[100px]"
         />
 
         {/* Right-Top Diagonal (matching the Left-Bottom corner) */}
