@@ -20,17 +20,18 @@ const DownloadApp: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 md:mt-8 md:px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-5xl md:flex-row-reverse">
-        {/* Right: QR Code and Download Section (Appears First in Mobile) */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-8 md:space-y-12">
-          <div className="">
-            <h2 className="text-2xl  font-bold text-gray-900">Seamless trading,</h2>
+        
+        {/* Right: QR Code and Download Section (Hides on Mobile) */}
+        <div className="hidden md:flex flex-col items-start text-left space-y-8 md:space-y-12">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900">Seamless trading,</h2>
             <h3 className="font-inter text-gray-600 text-[24px] font-semibold leading-[20.04px]">
               Anywhere, anytime.
             </h3>
           </div>
 
           {/* QR Code */}
-          <div className=" flex flex-col md:flex-row items-center justify-center md:justify-start space-x-0 md:space-x-8">
+          <div className="flex items-center space-x-8">
             <Image
               src="/scan.png"
               alt="QR Code"
@@ -38,14 +39,14 @@ const DownloadApp: React.FC = () => {
               height={120}
               className="rounded-md"
             />
-            <div className="flex flex-col mt-4 md:mt-0 ml-0 md:ml-2 text-center md:text-left">
+            <div className="ml-2">
               <p className="text-gray-700 text-m">Scan to Download App</p>
               <p className="font-bold text-xl text-gray-900">iOS and Android</p>
             </div>
           </div>
 
           {/* OS Download Options */}
-          <div className="flex justify-center md:justify-start space-x-12 text-black font-semibold">
+          <div className="flex justify-start space-x-12 text-black font-semibold">
             <OsDownloadOption Icon={FaApple} label="MacOS" />
             <OsDownloadOption Icon={FaWindows} label="Windows" />
             <OsDownloadOption Icon={FaLinux} label="Linux" />
@@ -53,8 +54,8 @@ const DownloadApp: React.FC = () => {
           </div>
         </div>
 
-        {/* Left: Trading Chart (Appears Below in Mobile) */}
-        <div className="flex justify-center order-first md:order-none">
+        {/* Left: Trading Chart (Always Visible) */}
+        <div className="flex justify-center">
           <Image
             src="/dt.png"
             alt="Trading Chart"
@@ -66,7 +67,7 @@ const DownloadApp: React.FC = () => {
       </div>
 
       {/* Tabs: Desktop, Mobile, Pro */}
-      <div className="md:mt-8  flex justify-center md:justify-start space-x-4">
+      <div className="md:mt-8 flex justify-center md:justify-start space-x-4">
         {tabOptions.map((tab) => (
           <button
             key={tab}

@@ -63,7 +63,7 @@ const News: React.FC = () => {
       </div>
 
       {/* Tabs Section */}
-      <div className="flex flex-wrap justify-center md:justify-start space-x-0 md:space-x-4">
+      <div className="flex flex-wrap justify-center md:justify-start space-x-0 md:space-x-2 md:ml-4">
         {Object.keys(newsData).map((tab) => (
           <button
             key={tab}
