@@ -26,12 +26,12 @@ const Signup: React.FC = () => {
         <img 
           src="/rightimage.png" 
           alt="Right Side" 
-          className="absolute md:right-8 right-10 md:-top-0 top-6 w-[80px] h-[80px] object-cover md:w-[100px] md:h-[100px]"
+          className="absolute md:right-8 right-14 md:-top-0 top-10 w-[80px] h-[80px] object-cover md:w-[100px] md:h-[100px]"
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center pl-10 pr-16">
+      <div className="relative z-10 text-center pl-16 pr-24">
         <h2 className="text-m font-semibold text-gray-700 mb-4 ml-6 md:text-3xl">
           Start your adventure today!
         </h2>
