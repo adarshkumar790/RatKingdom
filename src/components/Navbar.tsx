@@ -11,7 +11,7 @@ const Navbar = () => {
       {/* Logo and Navigation */}
       <div className="flex items-center space-x-8 pl-4">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center mr-2">
           <img src="/rat.png" alt="Rats Kingdom Logo" className="w-7 h-7 mr-1 -mt-4" />
           <div className="flex flex-col items-start">
             <span className="text-[#5B5858] font-sans text-[24px] font-bold leading-[41.15px] text-left">RATS</span>
