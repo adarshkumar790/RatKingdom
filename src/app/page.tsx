@@ -48,7 +48,7 @@ const HomePage = () => {
         <div>
           <FAQ/>
         </div>
-        <div>
+        <div className="mb-8">
           <Signup/>
         </div>
      </div>
