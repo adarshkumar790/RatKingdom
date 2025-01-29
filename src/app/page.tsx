@@ -11,12 +11,12 @@ const HomePage = () => {
   return (
     <>
     <Navbar/>
-    <div className="bg-white min-h-screen flex flex-col items-center p-4">
+    <div className="bg-white min-h-screen flex flex-col items-center">
     
-      <main className="flex flex-col md:flex-row items-center justify-between px-6 py-10 pt-0">
+      <main className="flex flex-col md:flex-row items-center justify-between px-6 py-10 pt-4">
         {/* Left Section */}
-        <div className="text-center md:text-left max-w-xl ml-4 ">
-          <h1 className="font-[Kantumruy] text-black text-[50px] font-extrabold leading-[60px] text-left">
+        <div className="text-center md:text-left max-w-xl">
+          <h1 className="font-[Kantumruy] text-black text-[54px] font-extrabold leading-[60px] text-left">
             Join the all-in-one <br /> <span className="text-[#5B5858]"> Crypto app </span> by <br /> Rats Kingdom!
           </h1>
           <div className="mt-16 flex justify-center md:justify-start">
@@ -34,7 +34,7 @@ const HomePage = () => {
         </div>
 
         {/* Right Section */}
-        <div className=" md:mt-0 w-[500px] h-[500px] ml-16 flex items-center justify-center">
+        <div className=" md:mt-0 w-[500px] h-[500px] ml-32 flex items-center justify-center">
         <TopData/>
         </div>
         
