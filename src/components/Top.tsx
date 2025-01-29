@@ -32,7 +32,7 @@ const TopData = () => {
   const data = selectedTab === "topList" ? topListData : newCoinsData;
 
   return (
-    <div className="border border-gray-300 rounded-lg ml-4 mr-36 p-6 bg-[#E9E9E9] h-[350px] md:w-[600px] w-[380px]">
+    <div className="border border-gray-300 rounded-3xl ml-4 mr-36 p-6 bg-[#E9E9E9] h-[350px] md:w-[600px] w-[380px]">
       {/* Tab Buttons with Bigger Background */}
       <div className="flex justify-between mb-4">
         <button
