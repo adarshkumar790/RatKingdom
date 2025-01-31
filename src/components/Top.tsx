@@ -1,29 +1,61 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
+interface CryptoData {
+  shortName: string;
+  fullName: string;
+  price: string; // We'll store price as string to ensure correct formatting
+  change: number; // Change percentage
+  changeColor: string;
+  icon: string; // Manually added icon URL
+}
+
 const TopData = () => {
-  const topListData = [
-    { shortName: "BTC", fullName: "Bitcoin", price: "$102,146.50", change: "-0.25%", changeColor: "text-red-500", icon: "/top1.png" },
-    { shortName: "ETH", fullName: "Ethereum", price: "$102,156.10", change: "+0.15%", changeColor: "text-green-500", icon: "/top2.png" },
-    { shortName: "BNB", fullName: "BNB", price: "$13,165.50", change: "-0.15%", changeColor: "text-red-500", icon: "/top3.png" },
-    { shortName: "Rats", fullName: "Kingdom", price: "$316.50", change: "+0.35%", changeColor: "text-green-500", icon: "/top4.png" },
-    { shortName: "SOL", fullName: "Solana", price: "$13,165.50", change: "-0.15%", changeColor: "text-red-500", icon: "/top5.png" },
-  ];
-
-  const newCoinsData = [
-    { shortName: "DOGE", fullName: "Dogecoin", price: "$0.25", change: "+5.25%", changeColor: "text-green-500", icon: "/doge-icon.svg" },
-    { shortName: "ADA", fullName: "Cardano", price: "$2.15", change: "-1.10%", changeColor: "text-red-500", icon: "/ada-icon.svg" },
-    { shortName: "LTC", fullName: "Litecoin", price: "$175.75", change: "-0.75%", changeColor: "text-red-500", icon: "/ltc-icon.svg" },
-    { shortName: "XRP", fullName: "Ripple", price: "$1.30", change: "+0.50%", changeColor: "text-green-500", icon: "/xrp-icon.svg" },
-    { shortName: "DOT", fullName: "Polkadot", price: "$30.40", change: "+2.00%", changeColor: "text-green-500", icon: "/dot-icon.svg" },
-  ];
-
+  const [topListData, setTopListData] = useState<CryptoData[]>([]);
+  const [newCoinsData, setNewCoinsData] = useState<CryptoData[]>([]);
   const [selectedTab, setSelectedTab] = useState("topList");
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log("Selected Tab:", selectedTab);
-  }, [selectedTab]);
+    fetch('/api/crypto') // Ensure this fetch URL points to your API endpoint
+      .then((res) => res.json())
+      .then((data) => {
+        // Top 5 highest-priced coins
+        setTopListData(
+          data.top5Highest.map((crypto: any) => {
+            const price = crypto.price || 0; // Fallback to 0 if price is undefined
+            const changePercentage = crypto.change || 0; // Fallback to 0 if change is undefined
+            return {
+              shortName: crypto.symbol,
+              fullName: crypto.name,
+              price: price.toFixed(2), // Safe to call toFixed() now
+              change: changePercentage,
+              changeColor: changePercentage < 0 ? "text-red-500" : "text-green-500",
+              icon: getIconBySymbol(crypto.symbol),
+            };
+          })
+        );
+
+        // Top 5 newest coins based on the date added
+        setNewCoinsData(
+          data.top5Newest.map((crypto: any) => {
+            const price = crypto.price || 0;
+            const changePercentage = crypto.change || 0;
+
+            return {
+              shortName: crypto.symbol,
+              fullName: crypto.name,
+              price: price.toFixed(2),
+              change: changePercentage,
+              changeColor: changePercentage < 0 ? "text-red-500" : "text-green-500",
+              icon: getIconBySymbol(crypto.symbol),
+            };
+          })
+        );
+      })
+      .catch(() => setError('Failed to fetch cryptocurrency data.'));
+  }, []);
 
   const handleTabClick = (tab: string) => {
     setSelectedTab(tab);
@@ -31,16 +63,30 @@ const TopData = () => {
 
   const data = selectedTab === "topList" ? topListData : newCoinsData;
 
+  // Function to return the icon URL based on the symbol
+  const getIconBySymbol = (symbol: string) => {
+    // You can manually add icons here based on cryptocurrency symbol
+    const iconMap: { [key: string]: string } = {
+      BTC: "/top1.png",
+      ETH: "/top2.png",
+      BNB: "/top3.png",
+      RATS: "/top4.png",
+      MKR: "/maker.png",
+      TRUMP: "/trump.png"
+      // Add more cryptocurrencies as needed
+    };
+
+    return iconMap[symbol] || "/icons/default-icon.png"; // Default icon if no match is found
+  };
+
   return (
-    <div className="border border-gray-300 rounded-lg md:ml-3 md:mr-36 mt-8 md:p-6 p-6 bg-[#E9E9E9] md:h-[350px] md:w-[600px]  w-[300px]">
+    <div className="border border-gray-300 rounded-lg md:ml-3 md:mr-36 mt-8 md:p-6 p-6 bg-[#E9E9E9] md:h-[350px] md:w-[600px] w-[300px]">
       {/* Tab Buttons with Bigger Background */}
-      <div className="flex justify-between mb-4 ">
+      <div className="flex justify-between mb-4">
         <button
           onClick={() => handleTabClick("topList")}
-          className={`md:px-24 px-16 -ml-7  -mt-7 py-4 font-semibold  ${
-            selectedTab === "topList"
-              ? "bg-white text-[#000000] "
-              : "text-gray-800 bg-transparent"
+          className={`md:px-24 px-16 -ml-7 -mt-7 py-4 font-semibold ${
+            selectedTab === "topList" ? "bg-white text-[#000000]" : "text-gray-800 bg-transparent"
           }`}
         >
           Top List
@@ -48,9 +94,7 @@ const TopData = () => {
         <button
           onClick={() => handleTabClick("newCoins")}
           className={`md:px-24 px-16 -mr-7 -mt-7 py-4 font-semibold transition-all ${
-            selectedTab === "newCoins"
-              ? "bg-white text-[#000000]"
-              : "text-gray-800 bg-transparent"
+            selectedTab === "newCoins" ? "bg-white text-[#000000]" : "text-gray-800 bg-transparent"
           }`}
         >
           New Coins
@@ -62,7 +106,12 @@ const TopData = () => {
         {data.map((item, index) => (
           <li key={index} className="flex justify-between items-center mb-4">
             <span className="flex items-center space-x-3 -ml-2">
-              <Image src={item.icon} alt={item.shortName} width={30} height={30} />
+              <Image
+                src={item.icon} // Use the manually set icon
+                alt={item.shortName}
+                width={30}
+                height={30}
+              />
               <div className="md:space-x-2 space-x-1">
                 <span className="text-m font-bold text-[#5B5858]">{item.shortName}</span>
                 <span className="ml-2 text-sm font-medium text-[#5B5858]">{item.fullName}</span>
@@ -70,13 +119,17 @@ const TopData = () => {
             </span>
 
             {/* Price & Change Section */}
-            <div className="flex items-center md:space-x-16 space-x-4  ml-auto">
-              <span className="font-semibold text-[#5B5858] text-[16px]  leading-[21.78px] text-right">{item.price.slice(0,5)}</span>
-              <span className={item.changeColor}>{item.change}</span>
+            <div className="flex items-center md:space-x-16 space-x-4 ml-auto">
+              <span className="font-semibold text-[#5B5858] text-[16px] leading-[21.78px] text-right">${item.price}</span>
+              <span className={`${item.changeColor} font-semibold`}>
+                {item.change > 0 ? `+${item.change.toFixed(2)}%` : `${item.change.toFixed(2)}%`}
+              </span>
             </div>
           </li>
         ))}
       </ul>
+
+      {error && <p className="text-red-500 mt-4">{error}</p>}
     </div>
   );
 };
