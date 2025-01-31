@@ -35,7 +35,7 @@ export async function GET() {
 
     // Inject Rats (Kingdom)
     top5Highest.splice(3, 0, {
-      name: 'Rats (Kingdom)',
+      name: 'Kingdom',
       symbol: 'RATS',
       price: 0.01,
       change: 0, // Adding a default change value for the injected "RATS"
