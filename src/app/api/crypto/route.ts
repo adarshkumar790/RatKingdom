@@ -17,7 +17,7 @@ export async function GET() {
       },
       params: {
         start: 1,
-        limit: 100, // Fetch more coins to ensure accurate sorting
+        limit: 100, 
         convert: 'USD',
       },
     });
@@ -28,26 +28,26 @@ export async function GET() {
         name: crypto.name,
         symbol: crypto.symbol,
         price: crypto.quote.USD.price,
-        change: crypto.quote.USD.percent_change_24h, // Fetching correct change field
+        change: crypto.quote.USD.percent_change_24h, 
       }))
       .sort((a: any, b: any) => b.price - a.price)
       .slice(0, 4);
 
-    // Inject Rats (Kingdom)
+    
     top5Highest.splice(3, 0, {
       name: 'Kingdom',
       symbol: 'RATS',
       price: 0.01,
-      change: 0, // Adding a default change value for the injected "RATS"
+      change: 0, 
     });
 
-    // Top 5 newest coins based on `date_added`
+  
     const top5Newest = data.data
       .map((crypto: any) => ({
         name: crypto.name,
         symbol: crypto.symbol,
         price: crypto.quote.USD.price,
-        change: crypto.quote.USD.percent_change_24h, // Fetching correct change field
+        change: crypto.quote.USD.percent_change_24h, 
         dateAdded: crypto.date_added,
       }))
       .sort((a: any, b: any) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime())

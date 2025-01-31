@@ -5,10 +5,10 @@ import Image from "next/image";
 interface CryptoData {
   shortName: string;
   fullName: string;
-  price: string; // We'll store price as string to ensure correct formatting
-  change: number; // Change percentage
+  price: string; 
+  change: number; 
   changeColor: string;
-  icon: string; // Manually added icon URL
+  icon: string; 
 }
 
 const TopData = () => {
@@ -18,18 +18,18 @@ const TopData = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/crypto') // Ensure this fetch URL points to your API endpoint
+    fetch('/api/crypto') 
       .then((res) => res.json())
       .then((data) => {
-        // Top 5 highest-priced coins
+        
         setTopListData(
           data.top5Highest.map((crypto: any) => {
-            const price = crypto.price || 0; // Fallback to 0 if price is undefined
-            const changePercentage = crypto.change || 0; // Fallback to 0 if change is undefined
+            const price = crypto.price || 0; 
+            const changePercentage = crypto.change || 0; 
             return {
               shortName: crypto.symbol,
               fullName: crypto.name,
-              price: price.toFixed(2), // Safe to call toFixed() now
+              price: price.toFixed(2), 
               change: changePercentage,
               changeColor: changePercentage < 0 ? "text-red-500" : "text-green-500",
               icon: getIconBySymbol(crypto.symbol),
@@ -37,7 +37,7 @@ const TopData = () => {
           })
         );
 
-        // Top 5 newest coins based on the date added
+        
         setNewCoinsData(
           data.top5Newest.map((crypto: any) => {
             const price = crypto.price || 0;
@@ -63,9 +63,9 @@ const TopData = () => {
 
   const data = selectedTab === "topList" ? topListData : newCoinsData;
 
-  // Function to return the icon URL based on the symbol
+  
   const getIconBySymbol = (symbol: string) => {
-    // You can manually add icons here based on cryptocurrency symbol
+    
     const iconMap: { [key: string]: string } = {
       BTC: "/top1.png",
       ETH: "/top2.png",
@@ -73,15 +73,15 @@ const TopData = () => {
       RATS: "/top4.png",
       MKR: "/maker.png",
       TRUMP: "/trump.png"
-      // Add more cryptocurrencies as needed
+      
     };
 
-    return iconMap[symbol] || "/icons/default-icon.png"; // Default icon if no match is found
+    return iconMap[symbol] || "/icons/default-icon.png"; 
   };
 
   return (
     <div className="border border-gray-300 rounded-lg md:ml-3 md:mr-36 mt-8 md:p-6 p-6 bg-[#E9E9E9] md:h-[350px] md:w-[600px] w-[300px]">
-      {/* Tab Buttons with Bigger Background */}
+      
       <div className="flex justify-between mb-4">
         <button
           onClick={() => handleTabClick("topList")}
@@ -101,13 +101,13 @@ const TopData = () => {
         </button>
       </div>
 
-      {/* Data List */}
+      
       <ul>
         {data.map((item, index) => (
           <li key={index} className="flex justify-between items-center mb-4">
             <span className="flex items-center space-x-3 -ml-2">
               <Image
-                src={item.icon} // Use the manually set icon
+                src={item.icon} 
                 alt={item.shortName}
                 width={30}
                 height={30}
@@ -118,7 +118,7 @@ const TopData = () => {
               </div>
             </span>
 
-            {/* Price & Change Section */}
+            
             <div className="flex items-center md:space-x-12 space-x-2 ml-auto">
               <span className="font-semibold text-[#5B5858] text-[12px] leading-[21.78px] text-right">${item.price}</span>
               <span className={`${item.changeColor} font-semibold`}>
