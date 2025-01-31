@@ -72,11 +72,15 @@ const TopData = () => {
       BNB: "/top3.png",
       RATS: "/top4.png",
       MKR: "/maker.png",
-      TRUMP: "/trump.png"
+      TRUMP: "/trump.png",
+      S: "/s.png",
+      PENGU: "/pengu.png",
+      KAIA: "/kaia.png",
+      FARTCOIN: "/fartcoin.png"
       
     };
 
-    return iconMap[symbol] || "/icons/default-icon.png"; 
+    return iconMap[symbol] || "/icons.png"; 
   };
 
   return (
