@@ -124,7 +124,7 @@ const TopData = () => {
 
             
             <div className="flex items-center md:space-x-12 space-x-2 ml-auto">
-              <span className="font-semibold text-[#5B5858] text-[12px] leading-[21.78px] text-right">${item.price}</span>
+              <span className="font-semibold text-[#5B5858] text-[12px] leading-[16.78px] text-right">${item.price}</span>
               <span className={`${item.changeColor} font-semibold`}>
                 {item.change > 0 ? `+${item.change.toFixed(2)}%` : `${item.change.toFixed(2)}%`}
               </span>
