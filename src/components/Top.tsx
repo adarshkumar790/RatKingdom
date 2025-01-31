@@ -119,7 +119,7 @@ const TopData = () => {
             </span>
 
             {/* Price & Change Section */}
-            <div className="flex items-center md:space-x-16 space-x-4 ml-auto">
+            <div className="flex items-center md:space-x-12 space-x-2 ml-auto">
               <span className="font-semibold text-[#5B5858] text-[16px] leading-[21.78px] text-right">${item.price}</span>
               <span className={`${item.changeColor} font-semibold`}>
                 {item.change > 0 ? `+${item.change.toFixed(2)}%` : `${item.change.toFixed(2)}%`}
