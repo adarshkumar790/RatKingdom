@@ -80,7 +80,7 @@ const TopData = () => {
       
     };
 
-    return iconMap[symbol] || "/icons.png"; 
+    return iconMap[symbol] || "/coinlogo.jpg"; 
   };
 
   return (
